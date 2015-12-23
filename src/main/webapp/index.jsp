@@ -1,16 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Demo application</title>
-    </head>
-    <body>
-        <h2>Simple demo application with Java EE 6 Servlet (3.0) and JSP</h2>
-        <p><a href="hello">See greetings from servlet</a></p>
-        <p><a href="form">Fill a form</a></p>
-        <p><a href="getPersonData.jsp">Fill a Person form</a></p>
-    </body>
-</html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags/templates"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<t:layout>
+	<jsp:attribute name="styles">
+		<!-- put your styles here -->
+	</jsp:attribute>
+	<jsp:attribute name="scripts">
+	<!-- pu your scrpits here -->
+	</jsp:attribute>
+	<jsp:body>
+		Hello World
+	</jsp:body>
+</t:layout>
