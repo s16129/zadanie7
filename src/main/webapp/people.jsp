@@ -10,9 +10,19 @@
 		<script type="text/javascript" src="scripts/person/PersonListViewModel.js"></script>
 		<script type="text/javascript">
 		$(function(){
-			var model = JSON.parse(sessionStorage.getItem('listOfPeople'));
-			var viewModel = new PersonListViewModel(model);
-			ko.applyBindings(viewModel);
+			$.ajax({
+	            url: "http://localhost:8080/servletjspdemo/rest/people/all",
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function (data) {
+	                var viewModel = new PersonListViewModel(data);
+	                ko.applyBindings(viewModel);
+	            },
+	            error: function (XMLHttpRequest, testStatus, errorThrown) {
+	               alert("nie udało się")
+
+	            }
+	        });
 		});
 		</script>
 	

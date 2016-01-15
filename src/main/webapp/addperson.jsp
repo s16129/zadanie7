@@ -14,6 +14,9 @@
 						age:0
 				};
 				var viewModel = new PersonViewModel(model);
+				var data = ko.toJSON( {
+	            	messege:'data from web'
+	            });
 				ko.applyBindings(viewModel);
 				
 			})

@@ -9,12 +9,18 @@ function PersonViewModel(model){
 	}
 	
 	self.add = function(){
-		if(!sessionStorage.getItem(listOfPeople)){
-			sessionStorage.setItem(listOfPeople, JSON.stringify([ko.mapping.toJS(self)]));
-		}else{
-			var list = JSON.parse(sessionStorage.getItem(listOfPeople));
-			list.push(ko.mapping.toJS(self));
-			sessionStorage.setItem(listOfPeople,JSON.stringify(list));
-		}
+		$.ajax({
+            url: "http://localhost:8080/servletjspdemo/rest/people/add",
+            type: "PUT",
+            data: ko.mapping.toJSON(self),
+            contentType: "application/json",
+            success: function (data) {
+                alert("udało się");
+            },
+            error: function (XMLHttpRequest, testStatus, errorThrown) {
+               alert("nie udało się")
+
+            }
+        });
 	}
 }

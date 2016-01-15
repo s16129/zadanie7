@@ -6,7 +6,25 @@
 		<!-- put your styles here -->
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
-		<!-- put your scripts here -->
+		<script type="text/javascript">
+		$.ajax({
+            url: "http://localhost:8080/servletjspdemo/rest/service/test",
+            type: "POST",
+            data: ko.toJSON({
+            	messege:"hello"
+            }),
+            contentType: "application/json",
+            success: function (data) {
+                alert("udało się");
+            },
+            error: function (XMLHttpRequest, testStatus, errorThrown) {
+               alert("nie udało się")
+
+            }
+        });
+			
+		</script>	
+		
 	</jsp:attribute>
 	<jsp:body>
 		Hello World
