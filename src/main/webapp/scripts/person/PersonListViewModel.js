@@ -63,7 +63,7 @@ function PersonListViewModel(){
 	};
 	self.getData = function(){
 		$.ajax({
-            url: "/servletjspdemo/rest/people?page=" + self.page(),
+            url: "/samplerestapp/rest/people?page=" + self.page(),
             type: "GET",
             contentType: "application/json",
             success: function (data) {
