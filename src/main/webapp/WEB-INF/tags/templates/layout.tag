@@ -7,6 +7,10 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="content/styles/styles.css"/>
+		<link rel="stylesheet" href="content/styles/jquery-ui.min.css"/>
+		<link rel="stylesheet" href="content/styles/jquery-ui.structure.min.css"/>
+		<link rel="stylesheet" href="content/styles/jquery-ui.theme.min.css"/>
+		<link rel="stylesheet" href="content/styles/bootstrap.min.css"/>
 		<jsp:invoke fragment="styles"/>
 	
 	</head>
@@ -14,19 +18,21 @@
 		<div id="pageheader">
 			<jsp:invoke fragment="header"/>	
 		</div>
-		<div id="menu">
-			<ul>
+		<div id="menu" class="navbar navbar-inverse navbar-fixed-top">
+			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">Home</a></li>
 				<li><a href="addperson.jsp">Add</a></li>
 				<li><a href="people.jsp">Show all</a></li>
 			</ul>
 		</div>
-		<div id="content">
+		<div id="content" class="container">
 			<jsp:doBody/>
 		</div>
 		
 		<div id="footer">
 			<script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+			<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 			<script type="text/javascript" src="scripts/knockout-3.3.0.js"></script>
 			<script type="text/javascript" src="scripts/knockout.mapping.js"></script>
 			

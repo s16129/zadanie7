@@ -1,17 +1,48 @@
 
-function PersonViewModel(model){
+function PersonViewModel(model,parent){
+	var p = parent;
 	var listOfPeople='listOfPeople';
 	ko.mapping.fromJS(model,{},this);
 	var self = this;
 
 	self.show = function(){
 		alert(ko.mapping.toJSON(self));
-	}
-	
+	};
+	self.deleteMe = function(){
+		$.ajax({
+            url: "/servletjspdemo/rest/people/"+self.id(),
+            type: "DELETE",
+            contentType: "application/json",
+            success: function (data) {
+                alert("udało się");
+                p.getData();
+            },
+            error: function (XMLHttpRequest, testStatus, errorThrown) {
+               alert("nie udało się")
+
+            }
+        });
+	};
+	self.updateMe = function(){
+		$.ajax({
+            url: "/servletjspdemo/rest/people/"+self.id(),
+            type: "PUT",
+            data: ko.mapping.toJSON(self),
+            contentType: "application/json",
+            success: function (data) {
+                alert("udało się");
+                p.getData();
+            },
+            error: function (XMLHttpRequest, testStatus, errorThrown) {
+               alert("nie udało się")
+
+            }
+        });
+	};
 	self.add = function(){
 		$.ajax({
-            url: "http://localhost:8080/servletjspdemo/rest/people/add",
-            type: "PUT",
+            url: "/servletjspdemo/rest/people",
+            type: "POST",
             data: ko.mapping.toJSON(self),
             contentType: "application/json",
             success: function (data) {

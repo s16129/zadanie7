@@ -10,7 +10,11 @@
 		<script type="text/javascript">
 			$(function(){
 				var model = {
-						name:'',
+						firstName:'',
+						lastName:'',
+						gender:'',
+						birthday:'',
+						email:'',
 						age:0
 				};
 				var viewModel = new PersonViewModel(model);
@@ -18,16 +22,37 @@
 	            	messege:'data from web'
 	            });
 				ko.applyBindings(viewModel);
-				
+				$('#bday').datepicker();
 			})
 		</script>
 	</jsp:attribute>
 	<jsp:body>
-		Dodaj osobę:<br/>
-		<label>Name <input type="text" data-bind="value: name"/></label><br/>
-		<label>Age <input type="text" data-bind="value: age"/></label><br/>
-		<button data-bind="click:show">Show</button><br/>
-		<button data-bind="click:add">Add</button><br/>
+		
+		<div class="form-group">
+		<label>First Name <input class="form-control" type="text" data-bind="value: firstName"/></label>
+		</div>
+		<div class="form-group">
+		<label>Last Name <input class="form-control" type="text" data-bind="value: lastName"/></label>
+		</div><div class="form-group">
+		<div class="form-group">
+		<label>Email <input class="form-control" type="text" data-bind="value: email"/></label>
+		</div><div class="form-group">
+		<label>Name <select class="form-control" type="text" data-bind="value: gender">
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+		</select></label>
+		</div>
+		<div class="form-group">
+		<label>Age <input class="form-control" type="text" data-bind="value: age"/></label><br/></div>
+		<div class="form-group">
+		<label>Birthday <input class="form-control" type="text" id="bday" data-bind="value: birthday"/></label><br/>
+		</div>
+		<div class="form-group">
+		<button class="btn btn-primary btn-xs" data-bind="click:show">Show json</button><br/>
+		</div>
+		<div class="form-group"><button class="btn btn-success"  data-bind="click:add">Add</button><br/>
+		</div>
+		
 	</jsp:body>
 	
 </t:layout>
