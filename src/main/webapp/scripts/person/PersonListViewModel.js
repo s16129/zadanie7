@@ -68,7 +68,7 @@ function PersonListViewModel(){
             contentType: "application/json",
             success: function (data) {
             	self.people([]);
-            	for(var i=0; i<list.length;i=i+1){
+            	for(var i=0; i<data.length;i=i+1){
             		self.people().push(new PersonViewModel(data[i], self));
             	}
 
