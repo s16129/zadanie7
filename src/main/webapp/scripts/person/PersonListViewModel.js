@@ -68,10 +68,11 @@ function PersonListViewModel(){
             contentType: "application/json",
             success: function (data) {
             	self.people([]);
+            	var tmp = [];
             	for(var i=0; i<data.length;i=i+1){
-            		self.people().push(new PersonViewModel(data[i], self));
+            		tmp.push(new PersonViewModel(data[i], self));
             	}
-
+            	self.people(tmp);
                 $('.js-bday').datepicker();
             },
             error: function (XMLHttpRequest, testStatus, errorThrown) {
