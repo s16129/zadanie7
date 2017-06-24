@@ -8,7 +8,7 @@
 	<jsp:attribute name="scripts">
 		<script type="text/javascript">
 		$.ajax({
-            url: "/samplerestapp/rest/service/test",
+            url: "/zadanie7/rest/service/test",
             type: "POST",
             data: ko.toJSON({
             	messege:"hello"

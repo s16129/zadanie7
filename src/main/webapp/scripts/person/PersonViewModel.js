@@ -10,7 +10,7 @@ function PersonViewModel(model,parent){
 	};
 	self.deleteMe = function(){
 		$.ajax({
-            url: "/samplerestapp/rest/people/"+self.id(),
+            url: "/zadanie7/rest/people/"+self.id(),
             type: "DELETE",
             contentType: "application/json",
             success: function (data) {
@@ -25,7 +25,7 @@ function PersonViewModel(model,parent){
 	};
 	self.updateMe = function(){
 		$.ajax({
-            url: "/samplerestapp/rest/people/"+self.id(),
+            url: "/zadanie7/rest/people/"+self.id(),
             type: "PUT",
             data: ko.mapping.toJSON(self),
             contentType: "application/json",
@@ -41,7 +41,7 @@ function PersonViewModel(model,parent){
 	};
 	self.add = function(){
 		$.ajax({
-            url: "/samplerestapp/rest/people",
+            url: "/zadanie7/rest/people",
             type: "POST",
             data: ko.mapping.toJSON(self),
             contentType: "application/json",
